@@ -1,0 +1,59 @@
+{
+  "name": "pi-cloakpipe",
+  "version": "0.1.0",
+  "description": "Pi package that masks sensitive prompt data with CloakPipe and rehydrates assistant responses before local use.",
+  "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borgius/pi-cloakpipe.git"
+  },
+  "homepage": "https://github.com/borgius/pi-cloakpipe#readme",
+  "bugs": {
+    "url": "https://github.com/borgius/pi-cloakpipe/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "privacy",
+    "cloakpipe"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "borgius"
+  },
+  "scripts": {
+    "build": "npm run check",
+    "check": "tsc --noEmit",
+    "install:pi": "node ./scripts/install-to-pi.mjs",
+    "release": "node ./scripts/release.mjs",
+    "release:major": "npm run release -- major",
+    "release:minor": "npm run release -- minor",
+    "release:patch": "npm run release -- patch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "uninstall:pi": "node ./scripts/uninstall-from-pi.mjs"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@types/node": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
